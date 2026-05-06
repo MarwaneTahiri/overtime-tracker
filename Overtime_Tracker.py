@@ -28,22 +28,26 @@ class OvertimeTracker:
         hoursleft = round((targetpay - (self.hours * pay)) / pay, 2)
 
         if hoursleft > 0:
-            print(f"you need to work {hoursleft} hours to attain that amount") 
+            print(f"you need to work {hoursleft} more hours to attain that amount") 
         else:
             print(f"you have reached £ {targetpay} or more this month")
 
-
-
-
-        
-
-
 ot = OvertimeTracker()
 
-ot.addnew(1)
+while True:
+    choice = input("1. Log overtime\n 2. View total hours\n 3. Target pay calculator\n 4. Exit\n Enter Number: ")
 
-ot.viewall()
+    if choice == "1":
+        lognew = int(input("How many hours would you log?: "))
+        ot.addnew(lognew)
+    
+    elif choice == "2":
+        ot.viewall()
 
+    elif choice == "3":
+        ot.targetpay()
 
-print(ot.targetpay())
+    elif choice == "4":
+        break
+
 
