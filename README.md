@@ -19,13 +19,13 @@ The app uses a CLI to keep things simple and easy to use. You get 4 options:
 
 ## Feature 1: Log new overtime
 
-When logging overtime, the app asks for a date in DD-MM-YY format and the number of hours worked. Both are then stored in a dictionary.
+When logging overtime, the app asks for a date in DD-MM-YY format and the number of hours worked. 
 
 ---
 
 ## Feature 2: View total hours
 
-You can view the total number of hours logged. This works by using a function that loops through the dictionary values and adds them together.
+You can view the total number of hours logged. 
 
 ---
 
