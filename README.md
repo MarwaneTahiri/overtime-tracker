@@ -1,25 +1,41 @@
-# OVERTIME TRACKER 
-This is an overtime tracker app that helps the user remember the number of hours they have worked by letting them log them.
+# OVERTIME TRACKER
+
+This is a simple overtime tracker app that helps you keep track of the hours you’ve worked by letting you log them.
+
+---
 
 # FEATURES
-## Feature 1: Log new overtime
-The app lets you log overtime using the addnew() function, this is then stored in a file that can be retrieved at any given time.
 
-## Feature 2: View total hours worked
-The app also lets you view how many hours you have logged, so you never forget how many hours of overtime you have done.
+## Command Line Interface
+
+The app uses a CLI to keep things simple and easy to use. You get 4 options:
+
+1. Log overtime  
+2. View total hours  
+3. Target pay calculator  
+4. Exit  
+
+---
+
+## Feature 1: Log new overtime
+
+When logging overtime, the app asks for a date in DD-MM-YY format and the number of hours worked. Both are then stored in a dictionary.
+
+---
+
+## Feature 2: View total hours
+
+You can view the total number of hours logged. This works by using a function that loops through the dictionary values and adds them together.
+
+---
+
+## Feature 3: Target pay calculator
+
+This feature asks for your hourly wage and how much you want to earn this month. It then calculates how many hours you need to work to reach that target.
+
+---
 
 # HOW TO USE
-  1. run the overtime_tracker.py file.
-  2. log new overtime using addnew()
-  3. view your total hours worked using viewall()
 
-# EXAMPLE 
-## Adding new hours
-```python
-ot.addnew(4) # This adds 4 hours to the count of total hours worked.
-```
-
-## Viewing all hours worked
-```python
-ot.viewall() # and this prints the total number of hours worked. 
-```
+1. Run the `overtime_tracker.py` file  
+2. Use the CLI to access the features  
