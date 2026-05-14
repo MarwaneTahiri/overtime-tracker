@@ -25,14 +25,14 @@ class OvertimeTracker:
                 datetime.strptime(overtimedate, "%d-%m-%y")
                 break
             except ValueError:
-                print("Enter date in correct format: DD-MM-YY: ")
+                print("Please enter the date in DD-MM-YY format.")
 
         overtimehours = input("How many hours would you log?: ")
 
         while not overtimehours.isdigit():
             overtimehours = input("Enter number only, How many hours would you log?: ")
         
-        self.overtimelist.append({overtimedate: int(overtimehours)})
+        self.overtimelist.append({"date" : overtimedate, "hours" : int(overtimehours)})
 
         with open('overtimehours.json', 'w') as file:
             json.dump(self.overtimelist, file)
@@ -46,8 +46,7 @@ class OvertimeTracker:
             print("No overtime has been logged yet.")
         else:
             for entry in self.overtimelist:
-                for date, hours in entry.items():
-                    print(f"{date}: {hours}")
+                print(f"{entry.get("date")}: {entry.get("hours")}")
 
     def targetpay(self):
         pay = int(input("How much do you get paid per hour?: "))
@@ -64,10 +63,11 @@ class OvertimeTracker:
     def totalhours(self):
         self.total = 0
         
-        for dicts in self.overtimelist:
-            for j in dicts.values():
-                self.total = self.total + j 
+        for entry in self.overtimelist:
+            self.total += entry["hours"]
+        
         return self.total
+            
 
 
 
