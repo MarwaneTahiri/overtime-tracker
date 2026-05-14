@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from datetime import datetime
 
 
 class OvertimeTracker:
@@ -17,16 +18,21 @@ class OvertimeTracker:
             
 
     def addnew(self):
-        overtimedate = input("When was this? DD-MM-YY: ")
+        while True:
+            overtimedate = input("When was this? DD-MM-YY: ")
+
+            try:
+                datetime.strptime(overtimedate, "%d-%m-%y")
+                break
+            except ValueError:
+                print("Enter date in correct format: DD-MM-YY: ")
+
         overtimehours = input("How many hours would you log?: ")
 
         while not overtimehours.isdigit():
             overtimehours = input("Enter number only, How many hours would you log?: ")
-        else:
-            self.overtimelist.append({overtimedate: int(overtimehours)})
         
-
-        
+        self.overtimelist.append({overtimedate: int(overtimehours)})
 
         with open('overtimehours.json', 'w') as file:
             json.dump(self.overtimelist, file)
