@@ -5,7 +5,6 @@ from pathlib import Path
 class OvertimeTracker:
     def __init__(self):
         self.overtimelist = []
-        self.overtimedict = {}
 
 
         hoursfile = Path("overtimehours.json")
@@ -15,18 +14,16 @@ class OvertimeTracker:
                 self.overtimelist = json.load(file)
         else:
             self.overtimelist = []
-
             
 
     def addnew(self):
         overtimedate = input("When was this? DD-MM-YY: ")
-        overtimehours = int(input("How many hours did you do?: "))
+        overtimehours = int(input("How many hours would you log?: "))
 
         self.overtimelist.append({overtimedate: overtimehours})
 
         with open('overtimehours.json', 'w') as file:
             json.dump(self.overtimelist, file)
-
 
 
     def viewall(self):
@@ -51,6 +48,10 @@ class OvertimeTracker:
             for j in dicts.values():
                 self.total = self.total + j 
         return self.total
+
+
+
+
 
 
 ot = OvertimeTracker()
