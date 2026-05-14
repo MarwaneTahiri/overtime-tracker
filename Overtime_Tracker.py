@@ -18,9 +18,15 @@ class OvertimeTracker:
 
     def addnew(self):
         overtimedate = input("When was this? DD-MM-YY: ")
-        overtimehours = int(input("How many hours would you log?: "))
+        overtimehours = input("How many hours would you log?: ")
 
-        self.overtimelist.append({overtimedate: overtimehours})
+        while not overtimehours.isdigit():
+            overtimehours = input("Enter number only, How many hours would you log?: ")
+        else:
+            self.overtimelist.append({overtimedate: int(overtimehours)})
+        
+
+        
 
         with open('overtimehours.json', 'w') as file:
             json.dump(self.overtimelist, file)
