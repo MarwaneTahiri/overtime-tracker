@@ -37,5 +37,17 @@ This feature asks for your hourly wage and how much you want to earn this month.
 
 # HOW TO USE
 
-1. Run the `overtime_tracker.py` file  
+1. Run the `Overtime_Tracker.py` file  
 2. Use the CLI to access the features  
+
+# FUTURE IMPROVEMENTS
+
+- Add an option to view all logged overtime entries by date
+- Add input validation so the app handles invalid dates, blank inputs, and non-number values
+- Allow users to edit or delete existing overtime entries
+- Improve the JSON data structure to store each entry with clear `date` and `hours` fields
+- Add monthly totals so users can see overtime for a specific month
+- Update the target pay calculator to use monthly overtime instead of all time overtime
+- Add a CSV export so overtime records can be opened in a spreadsheet
+- Add basic tests for the main calculations
+- Build a simple GUI or web version 
