@@ -26,9 +26,17 @@ class OvertimeTracker:
             json.dump(self.overtimelist, file)
 
 
-    def viewall(self):
-        print(f"you have worked {self.totalhours()} hours.")
+    def viewallhours(self):
+        print(f"You have worked {self.totalhours()} hours.")
     
+    def viewallentries(self):
+        if not self.overtimelist:
+            print("No overtime has been logged yet.")
+        else:
+            for entry in self.overtimelist:
+                for date, hours in entry.items():
+                    print(f"{date}: {hours}")
+
     def targetpay(self):
         pay = int(input("How much do you get paid per hour?: "))
 
@@ -57,13 +65,16 @@ class OvertimeTracker:
 ot = OvertimeTracker()
 
 while True:
-    choice = input("1. Log overtime\n 2. View total hours\n 3. Target pay calculator\n 4. Exit\n Enter Number: ")
+    choice = input("1. Log overtime\n 2. View total hours\n 3. View all entries\n 4. Target pay calculator\n 5. Exit\n Enter Number: ")
 
     if choice == "1":
         ot.addnew()
     
     elif choice == "2":
-        ot.viewall()
+        ot.viewallhours()
+
+    elif choice == "3":
+        ot.viewallentries()
 
     elif choice == "3":
         ot.targetpay()
