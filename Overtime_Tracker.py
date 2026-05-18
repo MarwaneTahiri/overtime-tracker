@@ -46,7 +46,7 @@ class OvertimeTracker:
             print("No overtime has been logged yet.")
         else:
             for entry in self.overtimelist:
-                print(f"{entry.get("date")}: {entry.get("hours")}")
+                print(f"{entry.get('date')}: {entry.get('hours')}")
 
     def targetpay(self):
         pay = int(input("How much do you get paid per hour?: "))
@@ -88,10 +88,10 @@ while True:
     elif choice == "3":
         ot.viewallentries()
 
-    elif choice == "3":
+    elif choice == "4":
         ot.targetpay()
 
-    elif choice == "4":
+    elif choice == "5":
         break
 
 
